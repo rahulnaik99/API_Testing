@@ -76,7 +76,7 @@ Scenario: Test for the Home Page with match repsonse
     Then print response
     Then match response contains deep {"jobTitle": "Software Engg"}
 
-  Scenario: Test match response with headergit add -A
+  Scenario: Test match response with header
     And path 'normal/webapi/all'
     And header Accept = 'application/json'
     When method Get
@@ -92,3 +92,11 @@ Scenario: Test for the Home Page with match repsonse
     Then print response
     Then match response/List/item/jobId == '1'
     Then match response/List/item/jobDescription == 'To develop android application'
+
+  Scenario: Test match response with header
+    And path 'normal/webapi/all'
+    And header Accept = 'application/json'
+    When method Get
+    Then status 200
+    Then print response
+    Then match header Connection == '#notnull'
