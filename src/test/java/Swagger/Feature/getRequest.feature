@@ -91,7 +91,8 @@ Scenario: Test for the Home Page with match repsonse
     Then status 200
     Then print response
     Then match response/List/item/jobId == '1'
-    Then match response/List/item/jobDescription == 'To develop android application'
+    Then match response/List/item/jobDescription == 'To develop andriod application'
+    Then match response.[0].project[0].technology[2] == 'Gradle'
 
   Scenario: Test match response with header
     And path 'normal/webapi/all'
